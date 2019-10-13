@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyTitle>System.Text.Json.EnumExtensions</AssemblyTitle>
-    <Title>EnumExtensions.System.Text.Json</Title>
+    <Title>System.Text.Json.EnumExtensions</Title>
+    <PackageId>EnumExtensions.System.Text.Json</PackageId>
     <Description>Extensions to the JsonStringEnumConverter which supports attributes like EnumMember, Display and Description.</Description>
     <PackageTags>System;Text;Json;Enum;EnumMember;EnumMemberAttribute;Attribute;DisplayAttribute;DescriptionAttribute</PackageTags>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
