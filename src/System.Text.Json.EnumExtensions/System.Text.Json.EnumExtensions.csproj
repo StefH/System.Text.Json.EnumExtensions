@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyTitle>System.Text.Json.EnumExtensions</AssemblyTitle>
     <Title>EnumExtensions.System.Text.Json</Title>
-    <Description></Description>
+    <Description>Extensions to the JsonStringEnumConverter which supports attributes like EnumMember, Display and Description.</Description>
     <PackageTags>System;Text;Json;Enum;EnumMember;EnumMemberAttribute;Attribute;DisplayAttribute;DescriptionAttribute</PackageTags>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <Authors>Stef Heyenrath</Authors>
