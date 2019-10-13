@@ -7,12 +7,13 @@ Some extensions to the JsonStringEnumConverter which supports attributes like En
 |-|-|
 | &nbsp;&nbsp;**Build Azure** | [![Build Status](https://dev.azure.com/stef/System.Text.Json.EnumExtensions/_apis/build/status/StefH.System.Text.Json.EnumExtensions?branchName=master)](https://dev.azure.com/stef/System.Text.Json.EnumExtensions/_build/latest?definitionId=28&branchName=master) |
 | &nbsp;&nbsp;**NuGet** | [![NuGet: EnumExtensions.System.Text.Json](https://buildstats.info/nuget/EnumExtensions.System.Text.Json)](https://www.nuget.org/packages/EnumExtensions.System.Text.Json)
-| &nbsp;&nbsp;**MyGet (preview)** | [![MyGet: EnumExtensions.System.Text.Json](https://buildstats.info/myget/System_Text_Json_EnumExtensions/EnumExtensions.System.Text.Json)](https://www.myget.org/feed/System_Text_Json_EnumExtensions/package/nuget/EnumExtensions.System.Text.Json) |
+| &nbsp;&nbsp;**MyGet (preview)** | [![MyGet: EnumExtensions.System.Text.Json](https://buildstats.info/myget/system_text_json_enumextensions/EnumExtensions.System.Text.Json)](https://www.myget.org/feed/system_text_json_enumextensions/package/nuget/EnumExtensions.System.Text.Json) |
 
 
 ## Installing
 You can install from NuGet using the following command in the package manager window:
-`Install-Package Blazored.FormExtensions`
+
+`Install-Package EnumExtensions.System.Text.Json`
 
 Or via the Visual Studio NuGet package manager.
 
@@ -27,7 +28,7 @@ public enum WeatherType
     [EnumMember(Value = "Zonnig")]
     Sunny,
 
-	[EnumMember(Value = "Helder")]
+    [EnumMember(Value = "Helder")]
     Clear
 }
 ```
