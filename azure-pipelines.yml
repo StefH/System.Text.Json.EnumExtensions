@@ -12,9 +12,9 @@ steps:
     echo "BuildId = $(buildId)"
   displayName: 'Print buildId'
 
-- task: DotNetCoreInstaller@0
-  inputs:
-    version: '2.2.401'
+#- task: DotNetCoreInstaller@0
+#  inputs:
+ #   version: '2.2.401'
 
 # Build source, tests and run tests for netcoreapp2.2 (with coverage)
 #- script: |
