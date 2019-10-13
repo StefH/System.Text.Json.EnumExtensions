@@ -1,14 +1,13 @@
-# JsonStringEnumConverterWithAttributeSupport
-An extended version from the JsonStringEnumConverter which supports attributes like EnumMember, Display and Description
+# System.Text.Json.Extensions
+Some extensions to the JsonStringEnumConverter which supports attributes like EnumMember, Display and Description
 
 
 ## Info
 | | |
 |-|-|
-| &nbsp;&nbsp;**Build Azure** | [![Build Status](https://dev.azure.com/stef/GraphQL.EntityFrameworkCore.DynamicLinq/_apis/build/status/StefH.GraphQL.EntityFrameworkCore.DynamicLinq)](https://dev.azure.com/stef/GraphQL.EntityFrameworkCore.DynamicLinq/_build/latest?definitionId=26) |
-| &nbsp;&nbsp;**Codecov** | [![codecov](https://codecov.io/gh/StefH/GraphQL.EntityFrameworkCore.DynamicLinq/branch/master/graph/badge.svg)](https://codecov.io/gh/StefH/GraphQL.EntityFrameworkCore.DynamicLinq) |
-| &nbsp;&nbsp;**NuGet** | [![NuGet: GraphQL.EntityFrameworkCore.DynamicLinq](https://buildstats.info/nuget/GraphQL.EntityFrameworkCore.DynamicLinq)](https://www.nuget.org/packages/GraphQL.EntityFrameworkCore.DynamicLinq)
-| &nbsp;&nbsp;**MyGet (preview)** | [![MyGet: GraphQL.EntityFrameworkCore.DynamicLinq](https://buildstats.info/myget/graphql_entityframeworkcore_dynamiclinq/GraphQL.EntityFrameworkCore.DynamicLinq)](https://www.myget.org/feed/graphql_entityframeworkcore_dynamiclinq/package/nuget/GraphQL.EntityFrameworkCore.DynamicLinq) |
+| &nbsp;&nbsp;**Build Azure** | [![Build Status](https://dev.azure.com/stef/System.Text.Json.EnumExtensions/_apis/build/status/StefH.System.Text.Json.EnumExtensions?branchName=master)](https://dev.azure.com/stef/System.Text.Json.EnumExtensions/_build/latest?definitionId=28&branchName=master) |
+| &nbsp;&nbsp;**NuGet** | [![NuGet: EnumExtensions.System.Text.Json](https://buildstats.info/nuget/EnumExtensions.System.Text.Json)](https://www.nuget.org/packages/EnumExtensions.System.Text.Json)
+| &nbsp;&nbsp;**MyGet (preview)** | [![MyGet: EnumExtensions.System.Text.Json](https://buildstats.info/myget/System_Text_Json_EnumExtensions/EnumExtensions.System.Text.Json)](https://www.myget.org/feed/System_Text_Json_EnumExtensions/package/nuget/EnumExtensions.System.Text.Json) |
 
 
 ## Installing
