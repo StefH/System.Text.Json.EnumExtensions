@@ -9,8 +9,8 @@
     <Authors>Stef Heyenrath</Authors>
     <Copyright>Stef Heyenrath</Copyright>
     <PackageReleaseNotes>See CHANGELOG.md</PackageReleaseNotes>
-    <PackageProjectUrl>https://github.com/StefH/JsonStringEnumConverterWithAttributeSupport</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/StefH/JsonStringEnumConverterWithAttributeSupport</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/StefH/System.Text.Json.EnumExtensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/StefH/System.Text.Json.EnumExtensions</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <DefaultLanguage>en-us</DefaultLanguage>
