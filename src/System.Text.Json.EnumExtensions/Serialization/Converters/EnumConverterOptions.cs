@@ -1,6 +1,5 @@
-﻿using System;
-
-namespace SystemTextJsonExample
+﻿// ReSharper disable once CheckNamespace
+namespace System.Text.Json.Serialization.Converters
 {
     /// <summary>
     /// Based on corefx/src/System.Text.Json/src/System/Text/Json/Serialization/Converters/EnumConverterOptions.cs

@@ -5,8 +5,9 @@ using System.Globalization;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
-using SystemTextJsonExample;
+using JetBrains.Annotations;
 
+// ReSharper disable once CheckNamespace
 namespace System.Text.Json.Serialization.Converters
 {
     /// <summary>
@@ -35,12 +36,7 @@ namespace System.Text.Json.Serialization.Converters
             return type.IsEnum;
         }
 
-        public JsonValueConverterEnumWithAttributeSupport(EnumConverterOptions options)
-            : this(options, namingPolicy: null)
-        {
-        }
-
-        public JsonValueConverterEnumWithAttributeSupport(EnumConverterOptions options, JsonNamingPolicy namingPolicy)
+        public JsonValueConverterEnumWithAttributeSupport(EnumConverterOptions options, [CanBeNull] JsonNamingPolicy namingPolicy = null)
         {
             _converterOptions = options;
             if (namingPolicy != null)
@@ -159,7 +155,7 @@ namespace System.Text.Json.Serialization.Converters
 
         private bool TryParseFromAttribute(string value, out T resolvedEnumValue)
         {
-            resolvedEnumValue = default(T);
+            resolvedEnumValue = default;
 
             foreach (T enumValue in Enum.GetValues(typeof(T)))
             {
@@ -177,40 +173,40 @@ namespace System.Text.Json.Serialization.Converters
         {
             attributeValue = null;
 
-            MemberInfo[] memberInfo = typeof(T).GetMember(enumValueAsString);
-            if (memberInfo != null && memberInfo.Length > 0)
+            var publicMembers = typeof(T).GetMember(enumValueAsString);
+            if (publicMembers.Length <= 0)
             {
-                if (_converterOptions.HasFlag(EnumConverterOptions.ParseEnumMemberAttribute))
-                {
-                    var enumMemberAttribute = memberInfo[0].GetCustomAttribute<EnumMemberAttribute>();
-                    if (enumMemberAttribute != null)
-                    {
-                        attributeValue = enumMemberAttribute.Value;
-                        return attributeValue != null;
-                    }
-                }
-
-                if (_converterOptions.HasFlag(EnumConverterOptions.ParseDisplayAttribute))
-                {
-                    var displayAttribute = memberInfo[0].GetCustomAttribute<DisplayAttribute>();
-                    if (displayAttribute != null)
-                    {
-                        attributeValue = displayAttribute.Name;
-                        return attributeValue != null;
-                    }
-                }
-
-                if (_converterOptions.HasFlag(EnumConverterOptions.ParseDisplayAttribute))
-                {
-                    var descriptionAttribute = memberInfo[0].GetCustomAttribute<DescriptionAttribute>();
-                    if (descriptionAttribute != null)
-                    {
-                        attributeValue = descriptionAttribute.Description;
-                        return attributeValue != null;
-                    }
-                }
-
                 return false;
+            }
+
+            if (_converterOptions.HasFlag(EnumConverterOptions.ParseEnumMemberAttribute))
+            {
+                var enumMemberAttribute = publicMembers[0].GetCustomAttribute<EnumMemberAttribute>();
+                if (enumMemberAttribute != null)
+                {
+                    attributeValue = enumMemberAttribute.Value;
+                    return attributeValue != null;
+                }
+            }
+
+            if (_converterOptions.HasFlag(EnumConverterOptions.ParseDisplayAttribute))
+            {
+                var displayAttribute = publicMembers[0].GetCustomAttribute<DisplayAttribute>();
+                if (displayAttribute != null)
+                {
+                    attributeValue = displayAttribute.Name;
+                    return attributeValue != null;
+                }
+            }
+
+            if (_converterOptions.HasFlag(EnumConverterOptions.ParseDisplayAttribute))
+            {
+                var descriptionAttribute = publicMembers[0].GetCustomAttribute<DescriptionAttribute>();
+                if (descriptionAttribute != null)
+                {
+                    attributeValue = descriptionAttribute.Description;
+                    return attributeValue != null;
+                }
             }
 
             return false;
@@ -237,10 +233,7 @@ namespace System.Text.Json.Serialization.Converters
 
                     writer.WriteStringValue(transformed);
 
-                    if (_nameCache != null)
-                    {
-                        _nameCache.TryAdd(original, transformed);
-                    }
+                    _nameCache?.TryAdd(original, transformed);
                     return;
                 }
             }

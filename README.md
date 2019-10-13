@@ -23,7 +23,7 @@ Or via the Visual Studio NuGet package manager.
 ### Define Enum and add attributes
 Define an Enum and annotate the Enum fields with the [EnumMemberAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.enummemberattribute?view=netstandard-2.0):
 ``` c#
-public enum WeatherType
+enum WeatherType
 {
     [EnumMember(Value = "Zonnig")]
     Sunny,
@@ -66,7 +66,7 @@ It's also possible to annotate Enum fields with these attributes:
 
 ### Define Enum and add attributes
 ``` c#
-public enum WeatherType
+enum WeatherType
 {
     [EnumMember(Value = "Zonnig")]
     Sunny,

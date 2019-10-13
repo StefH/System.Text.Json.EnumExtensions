@@ -1,11 +1,9 @@
 ﻿using JetBrains.Annotations;
-using System;
 using System.Reflection;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Text.Json.Serialization.Converters;
 
-namespace SystemTextJsonExample
+// ReSharper disable once CheckNamespace
+namespace System.Text.Json.Serialization
 {
     /// <summary>
     /// Based on corefx/src/System.Text.Json/src/System/Text/Json/Serialization/JsonStringEnumConverter.cs
@@ -16,25 +14,13 @@ namespace SystemTextJsonExample
         private readonly EnumConverterOptions _converterOptions;
 
         /// <summary>
-        /// Constructor. Creates the <see cref="JsonStringEnumConverter"/> with these default options:
-        /// - default naming policy
-        /// - allowing integer values
-        /// - allowing parsing from <see cref="System.Runtime.Serialization.EnumMemberAttribute"/>
-        /// </summary>
-        public JsonStringEnumConverterWithAttributeSupport()
-            : this(namingPolicy: null, allowIntegerValues: true)
-        {
-            // An empty constructor is needed for construction via attributes
-        }
-
-        /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="namingPolicy">Optional naming policy for writing enum values.</param>
+        /// <param name="namingPolicy">Naming policy for writing enum values [Optional.</param>
         /// <param name="allowIntegerValues">True to allow undefined enum values. When true, if an enum value isn't defined it will output as a number rather than a string.</param>
-        /// <param name="parseEnumMemberAttribute">Parse using <see cref="System.Runtime.Serialization.EnumMemberAttribute"/>, default is <see langword="true"/>.</param>
-        /// <param name="parseDisplayAttribute">Parse using <see cref="System.ComponentModel.DataAnnotations.DisplayAttribute"/>, default is <see langword="false"/>.</param>
-        /// <param name="parseDescriptionAttribute">Parse using <see cref="System.ComponentModel.DescriptionAttribute"/>, default is <see langword="false"/>.</param>
+        /// <param name="parseEnumMemberAttribute">Parse using <see cref="Runtime.Serialization.EnumMemberAttribute"/>, default is <see langword="true"/>.</param>
+        /// <param name="parseDisplayAttribute">Parse using <see cref="ComponentModel.DataAnnotations.DisplayAttribute"/>, default is <see langword="false"/>.</param>
+        /// <param name="parseDescriptionAttribute">Parse using <see cref="ComponentModel.DescriptionAttribute"/>, default is <see langword="false"/>.</param>
         public JsonStringEnumConverterWithAttributeSupport([CanBeNull] JsonNamingPolicy namingPolicy = null, bool allowIntegerValues = true,
             bool parseEnumMemberAttribute = true, bool parseDisplayAttribute = false, bool parseDescriptionAttribute = false)
         {

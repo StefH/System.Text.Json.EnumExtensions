@@ -1,4 +1,5 @@
-﻿namespace System.Text.Json.Serialization
+﻿// ReSharper disable once CheckNamespace
+namespace System.Text.Json.Serialization
 {
     /// <summary>
     /// Copied from corefx/src/System.Text.Json/src/System/Text/Json/Serialization/JsonDefaultNamingPolicy.cs 
