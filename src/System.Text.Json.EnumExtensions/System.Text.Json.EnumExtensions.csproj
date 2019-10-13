@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyTitle>System.Text.Json.EnumExtensions</AssemblyTitle>
+    <Title>EnumExtensions.System.Text.Json</Title>
+    <Description></Description>
+    <PackageTags>System;Text;Json;Enum;EnumMember;EnumMemberAttribute;Attribute;DisplayAttribute;DescriptionAttribute</PackageTags>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <Authors>Stef Heyenrath</Authors>
+    <Copyright>Stef Heyenrath</Copyright>
+    <PackageReleaseNotes>See CHANGELOG.md</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/StefH/JsonStringEnumConverterWithAttributeSupport</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/StefH/JsonStringEnumConverterWithAttributeSupport</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <DefaultLanguage>en-us</DefaultLanguage>
+    <ProjectGuid>{E6025F56-7A81-4C21-9FC1-AB7F090B1234}</ProjectGuid>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <!--<LangVersion>8.0</LangVersion>-->
+    <!--<Nullable>enable</Nullable>-->
+    <!--<SignAssembly>true</SignAssembly>-->
+    <!--<AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>-->
+    <!--<PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>-->
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2019.1.3">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0" />
+    <PackageReference Include="System.Text.Json" Version="4.6.0" />
+  </ItemGroup>
+
+</Project>
