@@ -17,6 +17,10 @@ You can install from NuGet using the following command in the package manager wi
 
 Or via the Visual Studio NuGet package manager.
 
+If you use the `dotnet` command:
+
+`$ dotnet add package System.Text.Json.EnumExtensions`
+
 
 ## Usage Example - EnumMember
 
