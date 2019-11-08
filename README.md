@@ -19,7 +19,7 @@ Or via the Visual Studio NuGet package manager.
 
 If you use the `dotnet` command:
 
-`$ dotnet add package System.Text.Json.EnumExtensions`
+`dotnet add package EnumExtensions.System.Text.Json`
 
 
 ## Usage Example - EnumMember
