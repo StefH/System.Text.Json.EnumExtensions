@@ -7,7 +7,7 @@ Some extensions to the JsonStringEnumConverter which supports attributes like En
 |-|-|
 | &nbsp;&nbsp;**Build Azure** | [![Build Status](https://dev.azure.com/stef/System.Text.Json.EnumExtensions/_apis/build/status/StefH.System.Text.Json.EnumExtensions?branchName=master)](https://dev.azure.com/stef/System.Text.Json.EnumExtensions/_build/latest?definitionId=28&branchName=master) |
 | &nbsp;&nbsp;**NuGet** | [![NuGet: EnumExtensions.System.Text.Json](https://buildstats.info/nuget/EnumExtensions.System.Text.Json)](https://www.nuget.org/packages/EnumExtensions.System.Text.Json)
-| &nbsp;&nbsp;**MyGet (preview)** | [![MyGet: EnumExtensions.System.Text.Json](https://buildstats.info/myget/system_text_json_enumextensions/EnumExtensions.System.Text.Json)](https://www.myget.org/feed/system_text_json_enumextensions/package/nuget/EnumExtensions.System.Text.Json) |
+| &nbsp;&nbsp;**MyGet (preview)** | [![MyGet: EnumExtensions.System.Text.Json](https://buildstats.info/myget/system_text_json_enumextensions/EnumExtensions.System.Text.Json?includePreReleases=true)](https://www.myget.org/feed/system_text_json_enumextensions/package/nuget/EnumExtensions.System.Text.Json) |
 
 
 ## Installing
