@@ -5,7 +5,7 @@
 		<PackageId>EnumExtensions.System.Text.Json</PackageId>
 		<Description>Extensions to the JsonStringEnumConverter which supports attributes like EnumMember, Display and Description.</Description>
 		<PackageTags>System;Text;Json;Enum;EnumMember;EnumMemberAttribute;Attribute;DisplayAttribute;DescriptionAttribute</PackageTags>
-		<TargetFrameworks>netstandard2.0;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
 		<Authors>Stef Heyenrath</Authors>
 		<Copyright>Stef Heyenrath</Copyright>
 		<PackageReleaseNotes>See CHANGELOG.md</PackageReleaseNotes>
@@ -28,7 +28,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="JetBrains.Annotations" Version="2019.1.3">
+		<PackageReference Include="JetBrains.Annotations" Version="2020.3.0">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 	</ItemGroup>
