@@ -48,11 +48,6 @@ namespace System.Text.Json.Serialization
         /// <summary>
         /// Parameterless constructor.
         /// </summary>
-        /// <param name="namingPolicy">Naming policy for writing enum values [Optional.</param>
-        /// <param name="allowIntegerValues">True to allow undefined enum values. When true, if an enum value isn't defined it will output as a number rather than a string.</param>
-        /// <param name="parseEnumMemberAttribute">Parse using <see cref="Runtime.Serialization.EnumMemberAttribute"/>, default is <see langword="true"/>.</param>
-        /// <param name="parseDisplayAttribute">Parse using <see cref="ComponentModel.DataAnnotations.DisplayAttribute"/>, default is <see langword="false"/>.</param>
-        /// <param name="parseDescriptionAttribute">Parse using <see cref="ComponentModel.DescriptionAttribute"/>, default is <see langword="false"/>.</param>
         public JsonStringEnumConverterWithAttributeSupport() : this(null)
         {
 
