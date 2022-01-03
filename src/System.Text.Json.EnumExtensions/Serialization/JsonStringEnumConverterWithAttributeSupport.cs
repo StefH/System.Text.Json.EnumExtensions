@@ -44,6 +44,14 @@ namespace System.Text.Json.Serialization
                 _converterOptions |= EnumConverterOptions.ParseDescriptionAttribute;
             }
         }
+        
+        /// <summary>
+        /// Parameterless constructor.
+        /// </summary>
+        public JsonStringEnumConverterWithAttributeSupport() : this(null)
+        {
+
+        }
 
         /// <inheritdoc />
         public override bool CanConvert(Type typeToConvert)
