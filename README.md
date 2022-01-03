@@ -22,7 +22,7 @@ If you use the `dotnet` command:
 `dotnet add package EnumExtensions.System.Text.Json`
 
 
-## Usage Example - EnumMember
+## Option 1: Usage Example - EnumMember
 
 ### Define Enum and add attributes
 Define an Enum and annotate the Enum fields with the [EnumMemberAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.enummemberattribute?view=netstandard-2.0):
@@ -61,6 +61,32 @@ Deserialize works by using the same **options**:
 var json = "{\"WeatherType\":\"Zonnig\"}";
 var weatherForecastDeserialized = JsonSerializer.Deserialize<WeatherForecast>(json, options);
 ```
+
+
+## Option 2: Usage Example - EnumMember
+It's also possible to annotate the Enum with a `[JsonConverter]` so that you don't need to manually registerd the `JsonStringEnumConverterWithAttributeSupport` to the Converters via the JsonSerializerOptions.
+
+### Define Enum and add attributes
+Define an Enum
+- add the `[JsonConverter(typeof(JsonStringEnumConverterWithAttributeSupport))]` to the Enum
+- annotate the Enum fields with the [EnumMemberAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.enummemberattribute?view=netstandard-2.0):
+``` c#
+[JsonConverter(typeof(JsonStringEnumConverterWithAttributeSupport))]
+enum WeatherType
+{
+    [EnumMember(Value = "Zonnig")]
+    Sunny,
+
+    [EnumMember(Value = "Helder")]
+    Clear
+}
+```
+
+### Serializing and Deserialize an object
+This works the same as using Option 1.
+
+Note that only Enum values which are annotated with `EnumMember` are supported.
+
 
 ## Usage Example - Display and Description
 It's also possible to annotate Enum fields with these attributes:

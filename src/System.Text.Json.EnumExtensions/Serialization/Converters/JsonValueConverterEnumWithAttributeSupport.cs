@@ -17,10 +17,10 @@ namespace System.Text.Json.Serialization.Converters
     internal class JsonValueConverterEnumWithAttributeSupport<T> : JsonConverter<T>
         where T : struct, Enum
     {
-        private static readonly TypeCode s_enumTypeCode = Type.GetTypeCode(typeof(T));
+        private static readonly TypeCode EnumTypeCode = Type.GetTypeCode(typeof(T));
 
         // Odd type codes are conveniently signed types (for enum backing types).
-        private static readonly string s_negativeSign = ((int)s_enumTypeCode % 2) == 0 ? null : NumberFormatInfo.CurrentInfo.NegativeSign;
+        private static readonly string NegativeSign = (int)EnumTypeCode % 2 == 0 ? null : NumberFormatInfo.CurrentInfo.NegativeSign;
 
         private readonly EnumConverterOptions _converterOptions;
         private readonly JsonNamingPolicy _namingPolicy;
@@ -77,7 +77,7 @@ namespace System.Text.Json.Serialization.Converters
                 throw new JsonException();
             }
 
-            switch (s_enumTypeCode)
+            switch (EnumTypeCode)
             {
                 // Switch cases ordered by expected frequency
                 case TypeCode.Int32:
@@ -150,7 +150,7 @@ namespace System.Text.Json.Serialization.Converters
             // preceded by a negative sign. Identifiers have to start with a letter
             // so we'll just pick the first valid one and check for a negative sign
             // if needed.
-            return value[0] >= 'A' && (s_negativeSign == null || !value.StartsWith(s_negativeSign));
+            return value[0] >= 'A' && (NegativeSign == null || !value.StartsWith(NegativeSign));
         }
 
         private bool TryParseFromAttribute(string value, out T resolvedEnumValue)
@@ -243,7 +243,7 @@ namespace System.Text.Json.Serialization.Converters
                 throw new JsonException();
             }
 
-            switch (s_enumTypeCode)
+            switch (EnumTypeCode)
             {
                 case TypeCode.Int32:
                     writer.WriteNumberValue(Unsafe.As<T, int>(ref value));

@@ -1,6 +1,6 @@
-﻿using JetBrains.Annotations;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Text.Json.Serialization.Converters;
+using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
 namespace System.Text.Json.Serialization
@@ -21,8 +21,12 @@ namespace System.Text.Json.Serialization
         /// <param name="parseEnumMemberAttribute">Parse using <see cref="Runtime.Serialization.EnumMemberAttribute"/>, default is <see langword="true"/>.</param>
         /// <param name="parseDisplayAttribute">Parse using <see cref="ComponentModel.DataAnnotations.DisplayAttribute"/>, default is <see langword="false"/>.</param>
         /// <param name="parseDescriptionAttribute">Parse using <see cref="ComponentModel.DescriptionAttribute"/>, default is <see langword="false"/>.</param>
-        public JsonStringEnumConverterWithAttributeSupport([CanBeNull] JsonNamingPolicy namingPolicy = null, bool allowIntegerValues = true,
-            bool parseEnumMemberAttribute = true, bool parseDisplayAttribute = false, bool parseDescriptionAttribute = false)
+        public JsonStringEnumConverterWithAttributeSupport(
+            [CanBeNull] JsonNamingPolicy namingPolicy = null,
+            bool allowIntegerValues = true,
+            bool parseEnumMemberAttribute = true,
+            bool parseDisplayAttribute = false,
+            bool parseDescriptionAttribute = false)
         {
             _namingPolicy = namingPolicy;
             _converterOptions = allowIntegerValues
@@ -44,7 +48,7 @@ namespace System.Text.Json.Serialization
                 _converterOptions |= EnumConverterOptions.ParseDescriptionAttribute;
             }
         }
-        
+
         /// <summary>
         /// Parameterless constructor.
         /// </summary>

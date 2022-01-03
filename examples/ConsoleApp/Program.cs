@@ -35,31 +35,33 @@ namespace ConsoleApp
         public WeatherType WeatherTypeInteger { get; set; }
     }
 
+    /// <summary>
+    /// Only `EnumMember` is supported when using Parameterless constructor
+    /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverterWithAttributeSupport))]
     enum SpaceWeatherType
     {
-        Unknown,
+        Unknown = 0,
 
-        [EnumMember(Value = "Solar Flare")]
+        [EnumMember(Value = "Solar_Flare")]
         SolarFlare,
 
-        [Display(Name = "CME")]
+        [EnumMember(Value = "CME")]
         CoronalMassEjection,
 
-        [Description("Heavy Bombardment")]
         HeavyBombardment,
 
-        [Description("Empty Void")]
+        [EnumMember(Value = "Empty_Void")]
         EmptyVoid
     }
-    
+
     class SpaceWeatherForecast
     {
-        public SpaceWeatherType WeatherTypeEnumMember { get; set; }
+        public SpaceWeatherType WeatherTypeEnumMember1 { get; set; }
 
-        public SpaceWeatherType WeatherTypeDisplay { get; set; }
+        public SpaceWeatherType WeatherTypeEnumMember2 { get; set; }
 
-        public SpaceWeatherType WeatherTypeDescription { get; set; }
+        public SpaceWeatherType WeatherTypeEnumMember3 { get; set; }
 
         public SpaceWeatherType WeatherTypeInteger { get; set; }
     }
@@ -69,40 +71,41 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             DemoWithJsonOptions();
+            Console.WriteLine(new string('-', 120));
             DemoWithConverterAttribute();
         }
 
         private static void DemoWithConverterAttribute()
         {
-            var weatherForecast = new SpaceWeatherForecast()
-                                  {
-                                      WeatherTypeEnumMember = SpaceWeatherType.SolarFlare,
-                                      WeatherTypeDisplay = SpaceWeatherType.CoronalMassEjection,
-                                      WeatherTypeDescription = SpaceWeatherType.HeavyBombardment,
-                                      WeatherTypeInteger = SpaceWeatherType.EmptyVoid
-                                  };
-            
-            var weatherForecastSerialized = JsonSerializer.Serialize(weatherForecast);
-            Console.WriteLine($"WeatherForecast:\r\n{weatherForecastSerialized}");
+            var spaceWeatherForecast = new SpaceWeatherForecast
+            {
+                WeatherTypeEnumMember1 = SpaceWeatherType.SolarFlare,
+                WeatherTypeEnumMember2 = SpaceWeatherType.CoronalMassEjection,
+                WeatherTypeEnumMember3 = SpaceWeatherType.HeavyBombardment,
+                WeatherTypeInteger = SpaceWeatherType.EmptyVoid
+            };
+
+            var spaceWeatherForecastSerialized = JsonSerializer.Serialize(spaceWeatherForecast);
+            Console.WriteLine($"SpaceWeatherForecast:\r\n{spaceWeatherForecastSerialized}");
             Console.WriteLine();
 
-            var json = "{\"WeatherTypeEnumMember\":\"Solar Flare\",\"WeatherTypeDisplay\":\"CME\",\"WeatherTypeDescription\":\"Heavy Bombardment\",\"WeatherTypeInteger\":4}";
-            var weatherForecastDeserialized = JsonSerializer.Deserialize<WeatherForecast>(json);
-            Console.WriteLine(weatherForecastDeserialized.WeatherTypeEnumMember);
-            Console.WriteLine(weatherForecastDeserialized.WeatherTypeDisplay);
-            Console.WriteLine(weatherForecastDeserialized.WeatherTypeDescription);
-            Console.WriteLine(weatherForecastDeserialized.WeatherTypeInteger);
+            var json = "{\"WeatherTypeEnumMember1\":\"Solar_Flare\",\"WeatherTypeEnumMember2\":\"CME\",\"WeatherTypeEnumMember3\":\"HeavyBombardment\",\"WeatherTypeInteger\":4}";
+            var spaceWeatherForecastDeserialized = JsonSerializer.Deserialize<SpaceWeatherForecast>(json)!;
+            Console.WriteLine(spaceWeatherForecastDeserialized.WeatherTypeEnumMember1);
+            Console.WriteLine(spaceWeatherForecastDeserialized.WeatherTypeEnumMember2);
+            Console.WriteLine(spaceWeatherForecastDeserialized.WeatherTypeEnumMember3);
+            Console.WriteLine(spaceWeatherForecastDeserialized.WeatherTypeInteger);
         }
 
         private static void DemoWithJsonOptions()
         {
             var weatherForecast = new WeatherForecast
-                                  {
-                                      WeatherTypeEnumMember = WeatherType.Sunny,
-                                      WeatherTypeDisplay = WeatherType.Clear,
-                                      WeatherTypeDescription = WeatherType.Cloudy,
-                                      WeatherTypeInteger = WeatherType.Snow
-                                  };
+            {
+                WeatherTypeEnumMember = WeatherType.Sunny,
+                WeatherTypeDisplay = WeatherType.Clear,
+                WeatherTypeDescription = WeatherType.Cloudy,
+                WeatherTypeInteger = WeatherType.Snow
+            };
 
             var options = new JsonSerializerOptions();
             options.Converters.Add(new JsonStringEnumConverterWithAttributeSupport(null, true, true, true, true));
@@ -112,7 +115,7 @@ namespace ConsoleApp
             Console.WriteLine();
 
             var json = "{\"WeatherTypeEnumMember\":\"Zonnig\",\"WeatherTypeDisplay\":\"Helder\",\"WeatherTypeDescription\":\"Bewolkt\",\"WeatherTypeInteger\":4}";
-            var weatherForecastDeserialized = JsonSerializer.Deserialize<WeatherForecast>(json, options);
+            var weatherForecastDeserialized = JsonSerializer.Deserialize<WeatherForecast>(json, options)!;
             Console.WriteLine(weatherForecastDeserialized.WeatherTypeEnumMember);
             Console.WriteLine(weatherForecastDeserialized.WeatherTypeDisplay);
             Console.WriteLine(weatherForecastDeserialized.WeatherTypeDescription);
