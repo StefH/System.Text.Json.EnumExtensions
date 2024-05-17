@@ -61,10 +61,10 @@ namespace System.Text.Json.Serialization.Converters
                     throw new JsonException();
                 }
 
-                string enumString = reader.GetString();
-                if (!Enum.TryParse(enumString, out T value) &&
-                    !Enum.TryParse(enumString, ignoreCase: true, out value) &&
-                    !(ParseFromAttribute && TryParseFromAttribute(enumString, out value)))
+                var enumStringValue = reader.GetString();
+                if (!(ParseFromAttribute && TryParseFromAttribute(enumStringValue, out var value)) &&
+                    !Enum.TryParse(enumStringValue, out value) &&
+                    !Enum.TryParse(enumStringValue, ignoreCase: true, out value))
                 {
                     throw new JsonException();
                 }

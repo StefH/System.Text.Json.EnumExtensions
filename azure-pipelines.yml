@@ -1,5 +1,5 @@
 pool:
-  vmImage: 'windows-2019'
+  vmImage: 'windows-2022'
 
 variables:
   Prerelease: 'ci'
@@ -11,10 +11,6 @@ steps:
 - script: |
     echo "BuildId = $(buildId)"
   displayName: 'Print buildId'
-
-#- task: DotNetCoreInstaller@0
-#  inputs:
- #   version: '2.2.401'
 
 # Build source, tests and run tests for netcoreapp2.2 (with coverage)
 #- script: |
@@ -65,4 +61,4 @@ steps:
   inputs:
     command: custom
     custom: nuget
-    arguments: push $(Build.ArtifactStagingDirectory)\packages\*.nupkg -n true --source https://www.myget.org/F/system_text_json_enumextensions/api/v3/index.json -k $(MyGetKey)
+    arguments: push $(Build.ArtifactStagingDirectory)\packages\*.nupkg --skip-duplicate -n --source https://www.myget.org/F/system_text_json_enumextensions/api/v3/index.json -k $(MyGetKey)
