@@ -61,4 +61,4 @@ steps:
   inputs:
     command: custom
     custom: nuget
-    arguments: push $(Build.ArtifactStagingDirectory)\packages\*.nupkg -n true --source https://www.myget.org/F/system_text_json_enumextensions/api/v3/index.json -k $(MyGetKey)
+    arguments: push $(Build.ArtifactStagingDirectory)\packages\*.nupkg --skip-duplicate -n --source https://www.myget.org/F/system_text_json_enumextensions/api/v3/index.json -k $(MyGetKey)
