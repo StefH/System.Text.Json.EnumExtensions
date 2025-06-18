@@ -5,9 +5,9 @@ Some extensions to the JsonStringEnumConverter which supports attributes like En
 ## Info
 | | |
 |-|-|
-| &nbsp;&nbsp;**Build Azure** | [![Build Status](https://dev.azure.com/stef/System.Text.Json.EnumExtensions/_apis/build/status/StefH.System.Text.Json.EnumExtensions?branchName=refs%2Fpull%2F7%2Fmerge)](https://dev.azure.com/stef/System.Text.Json.EnumExtensions/_build/latest?definitionId=28&branchName=refs%2Fpull%2F7%2Fmerge) |
-| &nbsp;&nbsp;**NuGet** | [![NuGet: EnumExtensions.System.Text.Json](https://buildstats.info/nuget/EnumExtensions.System.Text.Json)](https://www.nuget.org/packages/EnumExtensions.System.Text.Json)
-| &nbsp;&nbsp;**MyGet (preview)** | [![MyGet: EnumExtensions.System.Text.Json](https://buildstats.info/myget/system_text_json_enumextensions/EnumExtensions.System.Text.Json?includePreReleases=true)](https://www.myget.org/feed/system_text_json_enumextensions/package/nuget/EnumExtensions.System.Text.Json) |
+| &nbsp;&nbsp;**Build Azure** | [![Build Status](https://dev.azure.com/stef/System.Text.Json.EnumExtensions/_apis/build/status%2FStefH.System.Text.Json.EnumExtensions?branchName=TargetFrameworks)](https://dev.azure.com/stef/System.Text.Json.EnumExtensions/_build/latest?definitionId=28&branchName=TargetFrameworks) |
+| &nbsp;&nbsp;**NuGet** | [![NuGet: EnumExtensions.System.Text.Json](https://img.shields.io/nuget/v/EnumExtensions.System.Text.Json)](https://www.nuget.org/packages/EnumExtensions.System.Text.Json)
+| &nbsp;&nbsp;**MyGet (preview)** | [![MyGet: EnumExtensions.System.Text.Json](https://img.shields.io/myget/system_text_json_enumextensions/vpre/EnumExtensions.System.Text.Json?includePreReleases=true)](https://www.myget.org/feed/system_text_json_enumextensions/package/nuget/EnumExtensions.System.Text.Json) |
 
 
 ## Installing
