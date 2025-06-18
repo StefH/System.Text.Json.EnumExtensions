@@ -5,7 +5,7 @@
 		<PackageId>EnumExtensions.System.Text.Json</PackageId>
 		<Description>Extensions to the JsonStringEnumConverter which supports attributes like EnumMember, Display and Description.</Description>
 		<PackageTags>System;Text;Json;Enum;EnumMember;EnumMemberAttribute;Attribute;DisplayAttribute;DescriptionAttribute</PackageTags>
-		<TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net8.0</TargetFrameworks>
 		<Authors>Stef Heyenrath</Authors>
 		<Copyright>Stef Heyenrath</Copyright>
 		<PackageReleaseNotes>See CHANGELOG.md</PackageReleaseNotes>
@@ -16,6 +16,7 @@
 		<DefaultLanguage>en-us</DefaultLanguage>
 		<ProjectGuid>{E6025F56-7A81-4C21-9FC1-AB7F090B1234}</ProjectGuid>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageReadmeFile>PackageReadme.md</PackageReadmeFile>
 		<!--<LangVersion>8.0</LangVersion>-->
 		<!--<Nullable>enable</Nullable>-->
 		<!--<SignAssembly>true</SignAssembly>-->
@@ -27,6 +28,10 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
+  <ItemGroup>
+    <None Include="../../PackageReadme.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="JetBrains.Annotations" Version="2020.3.0">
 			<PrivateAssets>all</PrivateAssets>
@@ -34,7 +39,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-		<PackageReference Include="System.Text.Json" Version="4.6.0" />
+		<PackageReference Include="System.Text.Json" Version="4.7.2" />
 		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
 	</ItemGroup>
 
