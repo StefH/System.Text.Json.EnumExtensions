@@ -82,6 +82,18 @@ enum WeatherType
 }
 ```
 
+Generic Attribute is also supported:
+``` c#
+[JsonConverter(typeof(JsonStringEnumConverterWithAttributeSupport<WeatherType>))]
+enum WeatherType
+{
+    [EnumMember(Value = "Zonnig")]
+    Sunny,
+    [EnumMember(Value = "Helder")]
+    Clear
+}
+```
+
 ### Serializing and Deserialize an object
 This works the same as using Option 1.
 

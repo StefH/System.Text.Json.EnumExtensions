@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace ConsoleApp;
 
-enum WeatherType
+internal enum WeatherType
 {
     Unknown,
 
@@ -24,7 +24,7 @@ enum WeatherType
     Snow
 }
 
-class WeatherForecast
+internal class WeatherForecast
 {
     public WeatherType WeatherTypeEnumMember { get; set; }
 
@@ -39,7 +39,7 @@ class WeatherForecast
 /// Only `EnumMember` is supported when using Parameterless constructor
 /// </summary>
 [JsonConverter(typeof(JsonStringEnumConverterWithAttributeSupport))]
-enum SpaceWeatherType
+internal enum SpaceWeatherType
 {
     Unknown = 0,
 
@@ -55,7 +55,7 @@ enum SpaceWeatherType
     EmptyVoid
 }
 
-class SpaceWeatherForecast
+internal class SpaceWeatherForecast
 {
     public SpaceWeatherType WeatherTypeEnumMember1 { get; set; }
 
@@ -67,7 +67,7 @@ class SpaceWeatherForecast
 }
 
 [JsonConverter(typeof(JsonStringEnumConverterWithAttributeSupport))]
-enum EnumWithStringValue
+internal enum EnumWithStringValue
 {
     [EnumMember(Value = "21")]
     Email,
@@ -79,7 +79,7 @@ enum EnumWithStringValue
     Fax
 }
 
-class EnumWithStringValues
+internal class EnumWithStringValues
 {
     public EnumWithStringValue Email { get; set; }
 
@@ -88,15 +88,66 @@ class EnumWithStringValues
     public EnumWithStringValue Print { get; set; }
 }
 
-class Program
+[JsonConverter(typeof(JsonStringEnumConverter<GenericAttribute1>))]
+internal enum GenericAttribute1
 {
-    static void Main(string[] args)
+    [EnumMember(Value = "E")]
+    Email,
+
+    [EnumMember(Value = "P")]
+    Print,
+
+    [EnumMember(Value = "F")]
+    Fax
+}
+
+[JsonConverter(typeof(JsonStringEnumConverterWithAttributeSupport<GenericAttribute2>))]
+internal enum GenericAttribute2
+{
+    [EnumMember(Value = "E")]
+    Email,
+
+    [EnumMember(Value = "P")]
+    Print,
+
+    [EnumMember(Value = "F")]
+    Fax
+}
+
+internal class Program
+{
+    private static void Main(string[] args)
     {
+        DemoWithGenericConverterAttribute();
+        Console.WriteLine(new string('-', 120));
         DemoWithJsonOptions();
         Console.WriteLine(new string('-', 120));
         DemoWithConverterAttribute();
         Console.WriteLine(new string('-', 120));
         DemoWithConverterAttributeIssue9();
+    }
+
+    private static void DemoWithGenericConverterAttribute()
+    {
+        var x1 = new
+        {
+            GenericAttribute1.Email,
+            GenericAttribute1.Fax,
+            GenericAttribute1.Print
+        };
+        var serialized1 = JsonSerializer.Serialize(x1);
+        Console.WriteLine($"x1:\r\n{serialized1}");
+        Console.WriteLine();
+
+        var x2 = new
+        {
+            GenericAttribute2.Email,
+            GenericAttribute2.Fax,
+            GenericAttribute2.Print
+        };
+        var serialized2 = JsonSerializer.Serialize(x2);
+        Console.WriteLine($"x2:\r\n{serialized2}");
+        Console.WriteLine();
     }
 
     private static void DemoWithJsonOptions()
@@ -152,7 +203,7 @@ class Program
         {
             Email = EnumWithStringValue.Email,
             Fax = EnumWithStringValue.Fax,
-            Print = EnumWithStringValue.Print,
+            Print = EnumWithStringValue.Print
         };
 
         var serialized = JsonSerializer.Serialize(enumWithStringValues);
