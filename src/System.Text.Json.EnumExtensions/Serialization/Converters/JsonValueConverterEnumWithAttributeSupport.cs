@@ -142,7 +142,7 @@ internal class JsonValueConverterEnumWithAttributeSupport<T> : JsonConverter<T>
         throw new JsonException();
     }
 
-    private static bool IsValidIdentifier(string value)
+    private bool IsValidIdentifier(string value)
     {
         // Trying to do this check efficiently. When an enum is converted to
         // string the underlying value is given if it can't find a matching
