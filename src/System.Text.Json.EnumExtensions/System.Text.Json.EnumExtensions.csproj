@@ -17,8 +17,8 @@
     <ProjectGuid>{E6025F56-7A81-4C21-9FC1-AB7F090B1234}</ProjectGuid>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageReadmeFile>PackageReadme.md</PackageReadmeFile>
-    <!--<LangVersion>8.0</LangVersion>-->
-    <!--<Nullable>enable</Nullable>-->
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
     <!--<SignAssembly>true</SignAssembly>-->
     <!--<AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>-->
     <!--<PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>-->
@@ -32,14 +32,12 @@
     <None Include="../../PackageReadme.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2024.3.0">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
-
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+	  <PackageReference Include="Nullable" Version="1.3.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+		<PackageReference Include="System.Text.Json" Version="4.7.2" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 
