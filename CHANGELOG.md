@@ -1,3 +1,6 @@
+# 1.3.0 (13 October 2025)
+- [#15](https://github.com/StefH/System.Text.Json.EnumExtensions/pull/15) - Add support for generic attribute [enhancement] contributed by [StefH](https://github.com/StefH)
+
 # 1.2.1 (18 June 2025)
 - [#11](https://github.com/StefH/System.Text.Json.EnumExtensions/pull/11) - Bump System.Text.Json from 5.0.0 to 8.0.4 in /src/System.Text.Json.EnumExtensions [dependencies] contributed by [dependabot[bot]](https://github.com/apps/dependabot)
 - [#13](https://github.com/StefH/System.Text.Json.EnumExtensions/pull/13) - Bump System.Text.Json from 8.0.4 to 8.0.5 [dependencies, .NET] contributed by [dependabot[bot]](https://github.com/apps/dependabot)
