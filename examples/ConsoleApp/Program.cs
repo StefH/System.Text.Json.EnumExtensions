@@ -94,10 +94,10 @@ internal enum GenericAttribute1
     [EnumMember(Value = "E")]
     Email,
 
-    [EnumMember(Value = "P")]
+    [Display(Name = "P")]
     Print,
 
-    [EnumMember(Value = "F")]
+    [Description("F")]
     Fax
 }
 
@@ -107,10 +107,10 @@ internal enum GenericAttribute2
     [EnumMember(Value = "E")]
     Email,
 
-    [EnumMember(Value = "P")]
+    [Display(Name = "P")]
     Print,
 
-    [EnumMember(Value = "F")]
+    [Description("F")]
     Fax
 }
 
